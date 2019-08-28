@@ -3,7 +3,6 @@
 #[macro_use]
 extern crate rocket;
 
-use rocket_contrib::serve::StaticFiles;
 use std::env;
 
 #[link(name = "check.o")]
@@ -13,7 +12,9 @@ extern "C" {
 
 
 fn main() {
+    //fai il print di HELLO WORLD
     println!("Hello, world!");
+    //registra le funzioni
     rocket::ignite().mount("/", routes![index, eee]).launch();
 }
 
