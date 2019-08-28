@@ -25,7 +25,7 @@ fn index(chiave:String) -> String {
     if result == 0{
         String::from("CHIAVE SBAGLIATA!!!")
     } else {
-        String::from(format!("Password segreta: {}", std::env::var("chiave")))
+        String::from(format!("Password segreta: {}", std::env::var("chiave").unwrap()))
     }
 }
 
