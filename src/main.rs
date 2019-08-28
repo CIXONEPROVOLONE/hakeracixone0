@@ -2,7 +2,6 @@
 
 #[macro_use]
 extern crate rocket;
-extern crate rocket_contrib;
 
 use rocket_contrib::serve::StaticFiles;
 use std::env;
@@ -22,7 +21,7 @@ fn main() {
 #[get("/?<chiave>")]
 fn index(chiave:String) -> String {
     let result = unsafe{checkPassword(chiave.to_string().as_bytes().as_ptr())};
-    if result == 0{
+    if result == 0 {
         String::from("CHIAVE SBAGLIATA!!!")
     } else {
         String::from(format!("Password segreta: {}", std::env::var("chiave").unwrap()))
